@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reporte_fecha`(fecha varchar(25))
+BEGIN
+select e.fecha_compra as 'fecha_de_compra', c.Nombre_cliente as 'nombre_cliente', p.Nombre_producto as 'producto', p.valor_publico, e.cantidad as cantidad, concat(e.cantidad*p.valor_publico) as total, e.numero_factura as'factura' from aplicacion_ventas e inner join aplicacion_cliente c on e.idCliente_id=c.id inner join aplicacion_producto p on e.idProducto_id =p.id where e.fecha_compra=fecha;
+
+END

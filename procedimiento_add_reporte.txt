@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_reporte`(factura int(11))
+BEGIN
+insert into aplicacion_reportes (numero_factura) values(factura);
+
+END

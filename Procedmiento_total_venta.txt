@@ -1,0 +1,7 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `total_venta`(numero_factura int)
+BEGIN
+select  sum(e.cantidad*p.valor_publico) as total from aplicacion_producto p inner join aplicacion_ventas e on e.idProducto_id=p.id inner join aplicacion_cliente c on e.idCliente_id=c.id where e.numero_factura=numero_factura ;
+
+
+
+END

@@ -1,0 +1,41 @@
+disparador de eliminar venta
+
+
+BEGIN
+
+DECLARE cantidadp int;
+
+
+select DISTINCT p.cantidad INTO cantidadp FROM aplicacion_producto p INNER JOIN aplicacion_ventas e on p.id = OLD.idProducto_id;
+
+UPDATE aplicacion_producto set cantidad=cantidadp+OLD.cantidad where aplicacion_producto.id=OLD.idProducto_id;
+
+END
+
+
+
+
+
+
+
+
+///////////////////////////
+
+
+
+restar_cantidad en productos, disparador de tabal aplicacion_ventas
+
+
+
+
+
+BEGIN
+
+DECLARE cantidadp int;
+
+
+select DISTINCT p.cantidad INTO cantidadp FROM aplicacion_producto p INNER JOIN aplicacion_ventas e on p.id = NEW.idProducto_id;
+
+UPDATE aplicacion_producto set cantidad=cantidadp-NEW.cantidad where aplicacion_producto.id=NEW.idProducto_id;
+
+END

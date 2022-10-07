@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ver_reportes`()
+BEGIN
+select numero_factura from aplicacion_reportes;
+
+END

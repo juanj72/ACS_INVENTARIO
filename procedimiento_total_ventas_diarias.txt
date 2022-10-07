@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `total_ventas_diarias`(fecha varchar(25))
+BEGIN
+select sum(p.valor_publico*e.cantidad) as 'total' from aplicacion_ventas e inner join aplicacion_cliente c on e.idCliente_id=c.id inner join aplicacion_producto p on e.idProducto_id =p.id where e.fecha_compra=fecha;
+END

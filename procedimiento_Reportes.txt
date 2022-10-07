@@ -1,0 +1,4 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Reportes`()
+BEGIN
+select e.id as 'id_de_venta', concat(c.Nombre_cliente,' ID: ',c.id) as 'cliente', p.Nombre_producto as 'Producto', e.fecha_compra, e.cantidad, p.valor_publico as valor,concat(p.valor_publico*e.cantidad) as total, e.numero_factura as 'factura' from aplicacion_cliente c inner join aplicacion_ventas e on c.id=e.idCliente_id inner join aplicacion_producto p on e.idProducto_id=p.id; 
+END
